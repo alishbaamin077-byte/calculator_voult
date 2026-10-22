@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:background="@drawable/body_bg"
+        android:orientation="vertical"
+        android:paddingLeft="18dp"
+        android:paddingTop="18dp"
+        android:paddingRight="18dp"
+        android:paddingBottom="26dp">
+
+        <!-- brand + solar cell -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
+                android:text="calc"
+                android:textColor="#A48CC6"
+                android:textSize="22sp"
+                android:textStyle="bold|italic"
+                android:shadowColor="#99FFFFFF"
+                android:shadowDx="0"
+                android:shadowDy="1.5"
+                android:shadowRadius="1" />
+
+            <View
+                android:layout_width="150dp"
+                android:layout_height="46dp"
+                android:background="@drawable/solar_bg" />
+        </LinearLayout>
+
+        <!-- LCD -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bezel_bg"
+            android:paddingLeft="12dp"
+            android:paddingTop="12dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="15dp">
+
+            <com.example.calc.SevenSegmentView
+                android:id="@+id/lcd"
+                android:layout_width="match_parent"
+                android:layout_height="84dp"
+                android:background="@drawable/lcd_bg" />
+        </FrameLayout>
+
+        <!-- keypad -->
+        <LinearLayout
+            android:id="@+id/keypad"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/keypad_bg"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <LinearLayout style="@style/KeyRowBox">
+                <TextView style="@style/KeyRow" android:tag="c" android:text="CE/C" android:textSize="15sp" />
+                <TextView style="@style/KeyRow" android:tag="mrc" android:text="MRC" android:textSize="15sp" />
+                <TextView style="@style/KeyRow" android:tag="m-" android:text="M−" android:textSize="17sp" />
+                <TextView style="@style/KeyRow" android:tag="m+" android:text="M+" android:textSize="17sp" />
+                <TextView style="@style/KeyRow" android:tag="off" android:text="OFF" android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/KeyRowBox">
+                <TextView style="@style/KeyRow" android:tag="7" android:text="7" />
+                <TextView style="@style/KeyRow" android:tag="8" android:text="8" />
+                <TextView style="@style/KeyRow" android:tag="9" android:text="9" />
+                <TextView style="@style/KeyRow" android:tag="%" android:text="%" android:textSize="22sp" />
+                <TextView style="@style/KeyRow" android:tag="sqrt" android:text="√" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/KeyRowBox">
+                <TextView style="@style/KeyRow" android:tag="4" android:text="4" />
+                <TextView style="@style/KeyRow" android:tag="5" android:text="5" />
+                <TextView style="@style/KeyRow" android:tag="6" android:text="6" />
+                <TextView style="@style/KeyRow" android:tag="*" android:text="×" android:textSize="28sp" />
+                <TextView style="@style/KeyRow" android:tag="/" android:text="÷" android:textSize="28sp" />
+            </LinearLayout>
+
+            <!-- bottom block: 1 2 3 / 0 . ± | tall + | − and = -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:orientation="vertical">
+
+                    <LinearLayout style="@style/KeyRowBox">
+                        <TextView style="@style/KeyRow" android:tag="1" android:text="1" />
+                        <TextView style="@style/KeyRow" android:tag="2" android:text="2" />
+                        <TextView style="@style/KeyRow" android:tag="3" android:text="3" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/KeyRowBox">
+                        <TextView style="@style/KeyRow" android:tag="0" android:text="0" />
+                        <TextView style="@style/KeyRow" android:tag="." android:text="•" android:textSize="20sp" />
+                        <TextView style="@style/KeyRow" android:tag="neg" android:text="±" android:textSize="22sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView style="@style/KeyRow" android:tag="+" android:text="+" android:textSize="42sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView style="@style/KeyCol" android:tag="-" android:text="−" android:textSize="28sp" />
+                    <TextView style="@style/KeyCol" android:tag="=" android:text="=" android:textSize="28sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
